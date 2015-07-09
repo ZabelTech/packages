@@ -2,12 +2,13 @@
   :resource-paths #{"resources"}
   :dependencies '[[adzerk/bootlaces   "0.1.9" :scope "test"]
                   [cljsjs/boot-cljsjs "0.4.6" :scope "test"]
-		  [cljsjs/jquery-ui "1.11.4-0"]])
+		  [cljsjs/jquery "2.1.4-0"]
+		  [cljsjs/jquery-ui "1.11.3-1"]])
 
 (require '[adzerk.bootlaces :refer :all]
          '[cljsjs.boot-cljsjs.packaging :refer :all])
 
-(def +version+ "0.95.3-0")
+(def +version+ "0.97.0")
 
 (task-options!
   pom  {:project     'cljsjs/materializecss
@@ -19,14 +20,14 @@
 
 (deftask package []
   (comp
-    (download :url "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.js"
-              :checksum "262A2642B1C06CAF3753E129314D3D80")
-    (download :url "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"
-              :checksum "66F1CECD4DAF01EE9A4EA9A79051A8C2")
-    (download :url "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.css"
-              :checksum "635D36BB67F7112F2D688956C911F1AD")
-    (download :url "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css"
-              :checksum "862C10528B22A0C7F72B0A21B6BF0AE1")
+    (download :url "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.js"
+              :checksum "FFE1E2EB44EFBF279AFDCB0911EED217")
+    (download :url "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"
+              :checksum "93BE6CCFAED4778714CD3256C1B9CA4C")
+    (download :url "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.css"
+              :checksum "3FD74DC11EE0143B4DDB5578158D7B41")
+    (download :url "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"
+              :checksum "71C17718379307C36C68843836245717")
 
 (sift :move {#"materialize.js" "cljsjs/development/materialize.inc.js"
              #"materialize.min.js" "cljsjs/production/mazerialize.min.inc.js"
